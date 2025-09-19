@@ -10,3 +10,16 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Run with Docker 🐳
+
+Follow these steps to build and run the React app inside Docker:
+
+Build the Docker image:
+docker build -t react-app .
+
+Run the container:
+docker run -p 5173:5173 --name react-container react-app
+
+Open your browser and go to:
+http://localhost:5173
