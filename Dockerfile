@@ -1,10 +1,10 @@
-FROM node:18  
-WORKDIR /app  
+FROM node:22
+WORKDIR /app
 
-COPY package*.json ./  
-COPY . .  
+COPY package*.json ./
+COPY . .
 
-RUN npm install  
+RUN npm install
 
-EXPOSE 5173  
+EXPOSE 5173
 CMD ["npm", "run", "dev", "--", "--host"]
