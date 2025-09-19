@@ -1,10 +1,20 @@
-FROM node:18  
-WORKDIR /app  
+# Use Node 20 (Vite ko ye chahiye)
+FROM node:20-alpine
 
-COPY package*.json ./  
-COPY . .  
+# Work directory
+WORKDIR /app
 
-RUN npm install  
+# Copy package.json and lock file
+COPY package*.json ./
 
-EXPOSE 5173  
+# Install dependencies
+RUN npm install
+
+# Copy project files
+COPY . .
+
+# Expose Vite dev/prod port
+EXPOSE 5173
+
+# Start app in dev mode (vite dev server)
 CMD ["npm", "run", "dev", "--", "--host"]
