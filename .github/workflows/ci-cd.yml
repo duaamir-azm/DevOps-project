@@ -40,4 +40,4 @@ jobs:
             docker pull duaamir/my-react-vite-app-image:latest
             docker stop reactapp || true
             docker rm reactapp || true
-            docker run -d -p 80:80 --name reactapp duaamir/my-react-vite-app-image:latest
+            docker run -d -p 80:5173 --name reactapp duaamir/my-react-vite-app-image:latest
