@@ -23,3 +23,36 @@ docker run -p 5173:5173 --name react-container react-app
 
 Open your browser and go to:
 http://localhost:5173
+
+## CI/CD Pipeline Description
+
+This project uses **GitHub Actions** for automating the CI/CD process.  
+When code is pushed or merged into the **main** branch:
+
+- The workflow builds the React app Docker image.
+- Pushes the image to **Docker Hub**.
+- Optionally deploys it to **AWS EC2** using SSH.
+
+---
+
+## Instructions to Run and Deploy
+
+**Run locally with Docker:**
+
+docker build -t react-app .
+docker run -p 5173:5173 --name react-container react-app
+
+Then open http://localhost:5173
+
+Deploy manually from Docker Hub:
+
+docker pull duaamir/my-react-vite-app-image:latest
+docker run -d -p 5173:5173 --name react-vite-container duaamir/my-react-vite-app-image
+
+## ChangeLog
+
+Added CI/CD workflow using GitHub Actions
+
+Configured Docker image push to Docker Hub
+
+Added deployment instructions
