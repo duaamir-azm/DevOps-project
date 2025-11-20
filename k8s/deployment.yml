@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app-deployment # Deployment name
+  labels:
+    app: react-app # labelling the deployment
+spec:
+  replicas: 1 # run only one copy
+  selector:
+    matchLabels:
+      app: react-app
+  template:
+    metadata:
+      labels:
+        app: react-app
+    spec:
+      containers:
+        - name: react-app-container
+          image: duaamir/my-react-vite-app-image:latest # docker hub image from deliverable4
+          ports:
+            - containerPort: 5173 # react vite app internal port
