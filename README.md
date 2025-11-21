@@ -56,3 +56,24 @@ Added CI/CD workflow using GitHub Actions
 Configured Docker image push to Docker Hub
 
 Added deployment instructions
+
+## Minikube Deployment
+
+These steps guide you to deploy the Dockerized React application onto the Minikube Kubernetes cluster using manual commands.
+
+Start Minikube Cluster: Open PowerShell (Admin) and run
+minikube start --driver=docker
+
+Apply Configuration Files: Use the YAML files in the k8s/ folder to deploy the app:
+kubectl apply -f k8s/
+
+Check Pod Status: Verify the deployment is running by using
+kubectl get pods
+
+Access Application (Option 1): Get the external URL using
+minikube service react-app-service
+
+Access Application (Option 2): If the Minikube service fails, use port-forwarding:
+kubectl port-forward service/react-app-service 8080:80
+
+Verify in Browser: Open your browser to http://localhost:8080 and access running application.

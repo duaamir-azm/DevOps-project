@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: react-app-service # Service name (for minikube service)
+spec:
+  type: NodePort # Type for external access
+  selector:
+    app: react-app # Should match the label of the deployment
+  ports:
+    - port: 80 # Service will listen on port 80
+      targetPort: 5173 # Traffic will be sent to container port 5173
